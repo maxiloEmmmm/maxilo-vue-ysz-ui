@@ -1,0 +1,16 @@
+.ysz-list-item-center {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 2px 4px;
+
+    &.ysz-list-item-center__no-p {
+        padding: 0;
+    }
+
+    & > .ysz-list-item-center__center-item {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    } 
+}

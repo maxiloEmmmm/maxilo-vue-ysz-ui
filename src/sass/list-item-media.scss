@@ -1,0 +1,14 @@
+.ysz-list-item-media {
+    & .ysz-list-item-media__title {
+        color: #666
+    }
+
+    & .ysz-list-item-media__desc {
+        color: #bbb
+    }
+
+    & .ysz-list-item-media__title, & .ysz-list-item-media__desc {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

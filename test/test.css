@@ -1,0 +1,14 @@
+.ysz-border {
+    border: 2px solid #ccc
+}
+
+.example-range-list {
+    height: 22px;
+    width: 500px;
+}
+
+.example-active-list-item {
+    padding: 10px;
+    border: 1px solid;
+    cursor: pointer;
+}

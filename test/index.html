@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<link href="./ysz-ui.css" rel="stylesheet">
+<link href="./test.css" rel="stylesheet"></head>
+<body>
+    <div id="app" class="ysz-border">
+        <ysz-list>
+            <ysz-list-item>
+                <span slot="left">item</span>
+                <ysz-list-item class="ysz-border">
+                    <span slot="left">left</span>
+                    <span>right</span>
+                </ysz-list-item>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">item-top</span>
+                <ysz-list-item-top class="ysz-border">
+                    <span slot="top">top</span>
+                    <span>bottom</span>
+                </ysz-list-item-top>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">item-media</span>
+                <ysz-list-item-media class="ysz-border">
+                    <span slot="avatar">avatar</span>
+                    <span slot="title">title</span>
+                    <span>desc</span>
+                    <button slot="action">action</button>
+                </ysz-list-item-media>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">item-center</span>
+                <ysz-list-item-center class="ysz-border">
+                    <span slot="left">left</span>
+                    <span>center</span>
+                    <span slot="right">right</span>
+                </ysz-list-item-center>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">list</span>
+                <ysz-list>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                </ysz-list>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">list with row group</span>
+                <ysz-list :group="3" :row="true">
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                </ysz-list>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">list with column group height 200px</span>
+                <ysz-list :group="3" style="height: 200px;">
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                    <ysz-list-item>
+                        <span slot="left">left</span>
+                        <span>right</span>
+                    </ysz-list-item>
+                </ysz-list>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">card</span>
+                <ysz-card>
+                    <span slot="header">hi</span>
+                    <ysz-list-item-media class="ysz-border">
+                        <span slot="avatar">avatar</span>
+                        <span slot="title">title</span>
+                        <span>desc</span>
+                        <button slot="action">action</button>
+                    </ysz-list-item-media>
+                    <ysz-list-item-media class="ysz-border">
+                        <span slot="avatar">avatar</span>
+                        <span slot="title">title</span>
+                        <span>desc</span>
+                        <button slot="action">action</button>
+                    </ysz-list-item-media>
+                    <span slot="footer">版权所有</span>
+                </ysz-card>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">滑动列表</span>
+                <ysz-no-scroll class="example-range-list">
+                    <span v-for="i in 100" :key="i">{{ i }}</span>
+                </ysz-no-scroll>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">激活列表</span>
+                <ysz-active @input="hiActive">
+                    <span :model="i" class="example-active-list-item" v-for="i in 5" :key="i">{{ i }}</span>
+                </ysz-active>
+            </ysz-list-item>
+        </ysz-list>
+    </div>
+<script type="text/javascript" src="./vue.js"></script>
+<script type="text/javascript" src="./ysz-ui.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            hiActive: function(x){
+                console.log(x)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

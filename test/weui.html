@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="./ysz-ui.css" rel="stylesheet">
+    <link href="./ysz-weui.css" rel="stylesheet">
+    <link href="./test.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="ysz-border" ref="y">
+        <ysz-list>
+            <ysz-list-item ref="u">
+                <span slot="left">toast</span>
+                <ysz-list-item class="ysz-border">
+                    <button @click="show.toast = !show.toast">{{show.toast ? '关闭' : '显示'}}</button>
+                </ysz-list-item>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">语音测试</span>
+                <ysz-list-item class="ysz-border">
+                    <button @click="startVoice">开始录音</button>
+                    {{store.voiceSize}}
+                </ysz-list-item>
+            </ysz-list-item>
+            <ysz-list-item>
+                <span slot="left">表单</span>
+                <ysz-list-item class="ysz-border">
+                    <ysz-weui-cells title="!23">
+                    </ysz-weui-form>
+                </ysz-list-item>
+            </ysz-list-item>
+            <ysz-weui-toast v-model="show.toast" msg="hi"></ysz-weui-toast>
+        </ysz-list>
+        <ysz-weui-msg :show="false" desc="描述" @touch="test"></ysz-weui-msg>
+        <ysz-weui-alert :show="false" title="录入中..." @ok-touch="test" @cancle-touch="test">
+            <img src="./voice.gif" slot="desc">
+        </ysz-weui-alert>
+    </div>
+
+    <div id="testapp"></div>
+    <script type="text/javascript" src="./vue.js"></script>
+    <script type="text/javascript" src="./ysz-ui.js"></script>
+    <script type="text/javascript" src="./ysz-weui.js"></script>
+    <script type="text/javascript" src="./audio.js"></script>
+    <script>
+        Vue.config.devtools = true
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: {
+                    toast: false
+                },
+                store: {
+                    voiceSize: 0
+                }
+            },
+            watch: {
+                a: {
+                    handler: function(val, oval){
+                        console.log('watch')
+                    },
+                    immediate: true
+                }
+            },
+            beforeCreate: function(){
+                console.log('beforeCreate')
+            },
+            created: function () {
+                console.log('created')
+            },  
+            mounted(){
+                console.log('mounted')
+            },
+            methods: {
+                test(){
+                    console.log('trigger')
+                },
+                startVoice(){
+                    alert(1)
+                    try {
+                        var au = new _audioUtils
+                        if (!au.isSupport) {
+                            alert("audio vocie not Support")
+                        } else {
+                            alert("ready start")
+                            au.start().then(() => {
+                                alert(1)
+
+                                app.timer = setTimeout(() => {
+                                    app.store.voiceSize = au.getVoiceSize()
+                                }, 5)
+                            })
+                        }
+                    } catch (error) {
+                        alert(error)
+                    }
+                    
+                }
+            }
+        })
+
+
+        var render = Vue.compile("<div></div>")
+        console.log(render.render.toString())
+        var renderStr = render.render.toString().replace(/function anonymous[\s\S]*?return /, "")
+        console.log(renderStr)
+    </script>
+
+</body>
+
+</html>
