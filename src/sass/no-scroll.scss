@@ -1,0 +1,10 @@
+.ysz-no-scroll {
+    position: relative;
+    overflow: hidden;
+
+    & > .ysz-no-scroll__wrap {
+        position: absolute; 
+        left: 0;
+        overflow: scroll;
+    }
+}
