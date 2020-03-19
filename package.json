@@ -5,7 +5,8 @@
   "main": "lib/ysz-ui.js",
   "scripts": {
     "build": "rollup -c --environment TARGET:yszui",
-    "build-weui": "rollup -c --environment TARGET:yszweui"
+    "build-weui": "rollup -c --environment TARGET:yszweui",
+    "build-all": "npm run build && npm run build-weui"
   },
   "keywords": [
     "ui",

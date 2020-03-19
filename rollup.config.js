@@ -25,7 +25,7 @@ export default {
     output: {
         file: modules[process.env.TARGET].output,
         format: 'umd',
-        name: 'maxiloVue',
+        name: 'maxiloVueYszUI',
     },
     external: ['vue'],
     plugins: [
