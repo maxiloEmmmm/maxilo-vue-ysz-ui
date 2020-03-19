@@ -145,10 +145,6 @@ export default {
             }
         },
         _style(){
-            console.log({
-                    top: this._one_space.top + 'px',
-                    left: this._one_space.left + 'px',
-                }, this._ok_space, this._space_max.bl.w, this.d.w_width);
             return {
                 window_wrapper: {
                     top: this._one_space.top + 'px',
@@ -165,15 +161,5 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-    input {
-        width: 120px !important;
-    }
-    .no_s {
-        width: 100px;
-        height: 100px;
-    }
-</style>
 
 
