@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ysz-list :no-line="false" :group="3" :row="true">
+    <ysz-list :no-line="false" :group="2">
       <ysz-list-item v-for="i in 5" :key="i" style="width:120px">
         <span slot="left">left:</span>
         right content
