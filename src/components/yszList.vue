@@ -10,12 +10,12 @@ export default {
         },
         noLine: {
             type: Boolean,
-            default: false
+            default: true
         },
         group: {
             type: Number,
-            default: 0
-        }
+            default: 1
+        },
     },
     functional: true,
     render(h, instance) {
@@ -29,12 +29,13 @@ export default {
 
         let child_nums = instance.children.length
         let direction = !instance.props.row ? 'column' : 'row'
+        // let hasGroup = instance.props.group != 0
 
         let _class = {
             'ysz': true,
             'ysz-list':  true,
             'ysz-list__row': instance.props.row,
-            'ysz-list__group': hasGroup
+            'ysz-list__group': true
         }
 
         let staticClass = utils.get(instance, 'data.staticClass')
@@ -49,20 +50,19 @@ export default {
             _style = Object.assign({}, _style, staticStyle)
         }
 
-        let hasGroup = instance.props.group != 0
-        let group_percent = !hasGroup ? 0 : ((100 / instance.props.group).toFixed(6) + '%')
+        let group_percent = ((100 / instance.props.group).toFixed(6) + '%')
         return h('div', {
             class: _class,
             style: _style
         }, instance.children.map((val, k) => {
-            let isLast = hasGroup ? (((k+1) % instance.props.group) === 0) : (child_nums == (k+1))
-            let style = hasGroup ? {flexBasis: group_percent} : {}
+            let isLast = instance.props.row && ((k+1) % instance.props.group) === 0 || k+1 == child_nums
+            let style = {flexBasis: group_percent}
             return h('div', {
-                style,
+                style: Object.assign({}, style, {display: 'flex'}),
                 class: {
                     ['ysz-list__' + direction + '-wrapper']: true,
                     'ysz-list__wrapper-last': isLast,
-                    'ysz-list__wrapper-no-line': instance.props.noLine
+                    'ysz-list__wrapper-no-line': instance.props.noLine,
                 }
             }, [utils.getSlot(instance.children, k, h)])
         }));
