@@ -21,11 +21,11 @@
         position: relative;
         &::after {
             position: absolute;
-            height: 65%;
+            height: 76%;
             right: 0;
-            top: calc(18%);
+            top: calc(12%);
             content: '';
-            border-right: 2px solid #f3f3f3;
+            border-right: 1px solid #f3f3f3;
         }
         &.ysz-list__wrapper-last::after {
             display: none;
@@ -36,10 +36,10 @@
         &::after {
             position: absolute;
             width: 90%;
-            left: calc(10% - 10px);
+            left: calc(5%);
             bottom: 0;
             content: '';
-            border-bottom: 2px solid #f3f3f3;
+            border-bottom: 1px solid #f3f3f3;
         }
         &.ysz-list__wrapper-last::after {
             display: none;
