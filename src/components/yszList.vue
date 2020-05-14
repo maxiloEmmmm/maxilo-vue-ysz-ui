@@ -14,7 +14,7 @@ export default {
         },
         group: {
             type: Number,
-            default: 1
+            default: 0
         },
     },
     functional: true,
@@ -29,13 +29,13 @@ export default {
 
         let child_nums = instance.children.length
         let direction = !instance.props.row ? 'column' : 'row'
-        // let hasGroup = instance.props.group != 0
+        let hasGroup = instance.props.group != 0
 
         let _class = {
             'ysz': true,
             'ysz-list':  true,
             'ysz-list__row': instance.props.row,
-            'ysz-list__group': true
+            'ysz-list__group': hasGroup
         }
 
         let staticClass = utils.get(instance, 'data.staticClass')
@@ -50,19 +50,18 @@ export default {
             _style = Object.assign({}, _style, staticStyle)
         }
 
-        let group_percent = ((100 / instance.props.group).toFixed(6) + '%')
         return h('div', {
             class: _class,
             style: _style
         }, instance.children.map((val, k) => {
             let isLast = instance.props.row && ((k+1) % instance.props.group) === 0 || k+1 == child_nums
-            let style = {flexBasis: group_percent}
+            let style = hasGroup ? {flexBasis: (100 / instance.props.group).toFixed(6) + '%'} : {}
             return h('div', {
                 style: Object.assign({}, style, {display: 'flex'}),
                 class: {
                     ['ysz-list__' + direction + '-wrapper']: true,
                     'ysz-list__wrapper-last': isLast,
-                    'ysz-list__wrapper-no-line': instance.props.noLine,
+                    'ysz-list__wrapper-no-line': !hasGroup || instance.props.noLine,
                 }
             }, [utils.getSlot(instance.children, k, h)])
         }));
