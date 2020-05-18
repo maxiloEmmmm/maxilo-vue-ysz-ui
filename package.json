@@ -1,6 +1,6 @@
 {
   "name": "maxilo-vue-ysz-ui",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "none",
   "main": "lib/ysz-ui.js",
   "scripts": {
