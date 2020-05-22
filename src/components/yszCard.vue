@@ -21,8 +21,7 @@
 export default {
     name: 'yszCard',
     props: {
-        title: {default: ''},
-        action_align: {default: 'right'},
+        title: {default: '', type: String},
     }
 }
 </script>

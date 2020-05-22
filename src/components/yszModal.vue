@@ -10,8 +10,8 @@
 export default {
     name: 'yszModal',
     props: {
-        size: {default: 65},
-        show: {default: false}
+        size: {default: 65, type: [String, Number]},
+        show: {default: false, type: Boolean}
     },
     computed: {
         _style() {
