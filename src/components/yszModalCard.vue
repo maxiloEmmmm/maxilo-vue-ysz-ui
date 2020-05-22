@@ -1,6 +1,6 @@
 <template>
     <t-modal :show.sync="show">
-        <t-card @close="hide" :title="title" :action_align="action_align">
+        <t-card @close="hide" :title="title">
             <slot></slot>
             <slot slot="header" name="header"></slot>
         </t-card>
@@ -11,10 +11,9 @@
 export default {
     name: 'yszModalCard',
     props: {
-        show: {default: false},
-        title: {default: ''},
-        action_align: {default: 'right'},
-        size: {default: 65},
+        show: {default: false, type: Boolean},
+        title: {default: '', type: String},
+        size: {default: 65, type: [String, Number]},
     },
     methods: {
         hide(){

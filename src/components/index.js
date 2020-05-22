@@ -1,5 +1,7 @@
 import yszListItem from './yszListItem.vue';
+import yszListItems from './yszListItems.vue';
 import yszListItemTop from './yszListItemTop.vue';
+import yszListItemTops from './yszListItemTops.vue';
 import yszListItemCenter from './yszListItemCenter.vue';
 import yszListItemMedia from './yszListItemMedia.vue';
 import yszListCol from './yszListCol.vue';
@@ -15,7 +17,9 @@ import yszNoScroll from './yszNoScroll.vue';
 
 export default [
     yszListItem,
+    yszListItems,
     yszListItemTop,
+    yszListItemTops,
     yszListItemCenter,
     yszListItemMedia,
     yszListCol,

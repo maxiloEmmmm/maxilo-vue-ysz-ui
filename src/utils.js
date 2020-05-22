@@ -1,3 +1,63 @@
+const bind = function _bind(struct, data) {
+    let type = Object.prototype.toString.call(struct)
+    if(type == '[object Object]') {
+        let _struct = {}
+        Object.keys(struct).forEach(k => {
+            let hasRelationKey = k.indexOf('->') > -1
+            let sourceK = k
+            let destK = k
+            if(hasRelationKey) {
+                let keys = k.split('->')
+                sourceK = keys[0]
+                destK = keys[1]
+            }
+
+            let stype =  Object.prototype.toString.call(struct[k])
+            let val = data[destK]
+            if(stype == '[object Array]') {
+                let s = struct[k][0]
+                if(Object.prototype.toString.call(val) == '[object Array]') {
+                    let childItems = []
+                    val.forEach(child => {
+                        childItems.push(_bind(s, child))
+                    })
+                    _struct[destK] = childItems
+                }else {
+                    _struct[destK] = []
+                }
+            }else {
+                _struct[destK] = stype == '[object Object]' ? _bind(data, val) : struct[k](val)
+            }
+        })
+
+        return _struct
+    }else {
+        return null
+    }
+}
+
+const cloneDeep = function _cloneDeep(data){
+    let type = Object.prototype.toString.call(data)
+    if (!['[object Array]', '[object Object]'].includes(type)) {
+        return data
+    }else {
+        if(type == '[object Array]') {
+            let items = []
+            data.forEach(item => {
+                items.push(_cloneDeep(item))
+            })
+            return item
+        }else {
+            let obj = {...data}
+            let _obj = {}
+            Object.keys(obj).forEach(k => {
+                _obj[k] = _cloneDeep(obj[k])
+            })
+            return _obj
+        }
+    }
+}
+
 const has = function (
     obj,
     path,
@@ -133,5 +193,7 @@ export default {
     get,
     has,
     resize,
-    getSlot
+    getSlot,
+    bind,
+    cloneDeep
 }
