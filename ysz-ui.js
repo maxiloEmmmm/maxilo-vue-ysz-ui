@@ -8,10 +8,10 @@ import './src/sass/tw.scss'
 const install = function(vue){
     vue.use(infiniteScroll)
     
-    [components].map(component => {
+    components.map(component => {
         vue.component(component.name, component)
     })
-    [twComponents].map(component => {
+    twComponents.map(component => {
         vue.component(component.name, component)
     })
 }
