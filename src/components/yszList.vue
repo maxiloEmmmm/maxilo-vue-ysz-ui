@@ -55,9 +55,9 @@ export default {
             style: _style
         }, instance.children.map((val, k) => {
             let isLast = instance.props.row && ((k+1) % instance.props.group) === 0 || k+1 == child_nums
-            let style = hasGroup ? {flexBasis: (100 / instance.props.group).toFixed(6) + '%'} : {}
+            let style = hasGroup ? {width: (100 / instance.props.group).toFixed(6) + '%'} : {}
             return h('div', {
-                style: Object.assign({}, style, {display: 'flex'}),
+                style: Object.assign({}, style, {display: 'block'}),
                 class: {
                     ['ysz-list__' + direction + '-wrapper']: true,
                     'ysz-list__wrapper-last': isLast,

@@ -18,6 +18,11 @@ let modules = {
         entry: 'ysz-weui.js',
         output: 'lib/ysz-weui.js',
         outputcss: 'lib/ysz-weui.css',
+    },
+    ysztw: {
+        entry: 'ysz-tw.js',
+        output: 'lib/ysz-tw.js',
+        outputcss: 'lib/ysz-tw.css',
     }
 }
 export default {

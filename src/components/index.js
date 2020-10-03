@@ -12,9 +12,16 @@ import yszModalCard from './yszModalCard.vue';
 import yszToggle from './yszToggle.vue';
 import yszList from './yszList.vue';
 import yszActive from './yszActive.vue';
-import yszFixed from './yszFixed.vue';
-import yszNoScroll from './yszNoScroll.vue';
-
+import yszTable from "./yszTable.vue";
+import yszFetchWrap from "./yszFetchWrap.vue";
+import yszLogin from "./yszLogin.vue";
+import yszModule from "./yszModule.vue";
+import yszModuleCard from "./yszModuleCard.vue";
+import yszModuleWidget from "./yszModuleWidget.vue";
+import yszWidget from "./yszWidget.vue";
+import yszNormalSelect from "./yszNormalSelect.vue";
+import dashboard from "./dashboard"
+import common from "./common"
 export default [
     yszListItem,
     yszListItems,
@@ -30,6 +37,15 @@ export default [
     yszToggle,
     yszList,
     yszActive,
-    yszFixed,
-    yszNoScroll
+    yszTable,
+    yszFetchWrap,
+    yszTable,
+    yszLogin,
+    yszModule,
+    yszModuleCard,
+    yszModuleWidget,
+    yszWidget,
+    yszNormalSelect,
+    ...dashboard,
+    ...common
 ]
