@@ -138,7 +138,7 @@ const resize = function(el, cb, _c) {
 
     iframe.setAttribute('style', `
             width: 100%;
-            height: 100 %;
+            height: 100%;
             position: absolute;
             visibility: hidden;
             margin: 0;
