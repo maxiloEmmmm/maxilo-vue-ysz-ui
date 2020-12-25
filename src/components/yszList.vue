@@ -8,6 +8,10 @@ export default {
             type: Boolean,
             default: false
         },
+        noP: {
+            type: Boolean,
+            default: false
+        },
         noLine: {
             type: Boolean,
             default: true
@@ -35,7 +39,8 @@ export default {
             'ysz': true,
             'ysz-list':  true,
             'ysz-list__row': instance.props.row,
-            'ysz-list__group': hasGroup
+            'ysz-list__group': hasGroup,
+            'no-p': instance.props.noP
         }
 
         let staticClass = utils.get(instance, 'data.staticClass')

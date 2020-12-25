@@ -12,6 +12,11 @@
         text-align: center;
     }
 
+    &.no-p > .ysz-list__row-wrapper, & > .ysz-list__column-wrapper {
+        padding-left: 0;
+        padding: right;
+    }
+
     &.ysz-list__group > .ysz-list__row-wrapper, &.ysz-list__group > .ysz-list__column-wrapper {
         flex-shrink: 0;
         flex-grow: 0;
