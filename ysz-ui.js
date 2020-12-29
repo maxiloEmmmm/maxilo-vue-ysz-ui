@@ -3,6 +3,8 @@ import './src/sass/index.scss'
 
 import twComponents from './src/components/tw'
 import './src/sass/tw.scss'
+
+import * as config from "./src/config"
 const install = function(vue){
     components.map(component => {
         vue.component(component.name, component)
@@ -10,6 +12,7 @@ const install = function(vue){
     twComponents.map(component => {
         vue.component(component.name, component)
     })
+    config.init()
 }
 
 if (window.Vue) {
@@ -17,5 +20,6 @@ if (window.Vue) {
 }
 
 export default {
-    install
+    install,
+    config
 }
