@@ -414,5 +414,27 @@ export default {
     arrayDefault,
     getComponentFromProp,
     getRender,
-    bytesToSize
+    bytesToSize,
+    debounce: (cb, time = 1000) => {
+        let handler = null
+        return function() {
+            clearTimeout(handler)
+            handler = setTimeout(() => {
+                cb.apply(this, arguments)
+            }, time)
+        }
+    },
+    throttle: (cb, time = 1000) => {
+        let next = true
+        return function() {
+            if(!next) {
+                return
+            }
+            next = false
+            cb.apply(this, arguments)
+            setTimeout(() => {
+                next = true
+            }, time)
+        }
+    }
 }
