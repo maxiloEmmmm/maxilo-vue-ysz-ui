@@ -5,7 +5,7 @@
         :rows="rows"></textarea>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszWeuiTextarea',
     props: {

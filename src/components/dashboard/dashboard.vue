@@ -40,7 +40,7 @@
     </div>
 </template>
 
-<script>
+<script lang="jsx">
 import utils from '../../utils'
 export default {
     name: 'dashboard',
@@ -83,7 +83,7 @@ export default {
             }
             let iframe = {...nav}
             iframe.__PAGE__ = utils.random("page-")
-            this.$set(this.tabs, iframe.__PAGE__, iframe)
+            this.tabs[iframe.__PAGE__] =  iframe
             this.current = iframe.__PAGE__
         },
         closeTab(nav){

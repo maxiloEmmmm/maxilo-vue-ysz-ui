@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import utils from "../../utils"
 export default {
     name: "twListItem2",
@@ -10,7 +10,7 @@ export default {
         fit: {type: Boolean, default: false},
     },
     render(){
-        const {$scopedSlots, $listeners} = this
+        const {$slots, $listeners} = this
         let itemLen = this.items.length - 1
         let cs = 'bg-white font-normal text-base cursor-pointer flex items-center hover:bg-gray-300'.split(' ')
         if(!this.fit) {
@@ -28,16 +28,16 @@ export default {
                         : "")
                     + (this.indexStart ? ' self-start' : '')
                     }>{ index+1 }</div> : null}
-                {item.icon || $scopedSlots.icon 
-                    ? <div class="flex-shrink-0 w-10 mr-4 text-center">{ utils.getRender(this, item.icon || $scopedSlots.icon, {index, item, items: this.items}) }</div> 
+                {item.icon || $slots.icon
+                    ? <div class="flex-shrink-0 w-10 mr-4 text-center">{ utils.getRender(this, item.icon || $slots.icon, {index, item, items: this.items}) }</div>
                     : null}
                 <div class="flex flex-col flex-auto hover:text-purple-700">
-                    <div class="text-gray-700 text-left">{ utils.getRender(this, item.title || $scopedSlots.title, {index, item, items: this.items}) }</div>
-                    <div class="text-gray-500 text-left">{ utils.getRender(this, item.desc || $scopedSlots.desc, {index, item, items: this.items}) }</div>
+                    <div class="text-gray-700 text-left">{ utils.getRender(this, item.title || $slots.title, {index, item, items: this.items}) }</div>
+                    <div class="text-gray-500 text-left">{ utils.getRender(this, item.desc || $slots.desc, {index, item, items: this.items}) }</div>
                 </div>
                 <div class="flex-shrink-0 ml-3">
-                    {$scopedSlots.ext
-                        ? utils.getRender(this, $scopedSlots.ext, {index, item, items: this.items})
+                    {$slots.ext
+                        ? utils.getRender(this, $slots.ext, {index, item, items: this.items})
                         : ($listeners.click ? <span class="text-gray-500 font-bold">&gt;</span> : null)}
                 </div>
             </div>

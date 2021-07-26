@@ -331,8 +331,8 @@ const getPropsData = ele => {
   return componentOptions ? componentOptions.propsData || {} : {};
 }
 
-const getScopedSlots = ele => {
-  return (ele.data && ele.data.scopedSlots) || {};
+const getslots = ele => {
+  return (ele.data && ele.data.slots) || {};
 }
 
 const getComponentFromProp = (instance, prop, options = instance, execute = true) => {
@@ -343,8 +343,8 @@ const getComponentFromProp = (instance, prop, options = instance, execute = true
       return typeof temp === 'function' && execute ? temp(h, options) : temp;
     }
     return (
-      (instance.$scopedSlots[prop] && execute && instance.$scopedSlots[prop](options)) ||
-      instance.$scopedSlots[prop] ||
+      (instance.$slots[prop] && execute && instance.$slots[prop](options)) ||
+      instance.$slots[prop] ||
       instance.$slots[prop] ||
       undefined
     );
@@ -354,7 +354,7 @@ const getComponentFromProp = (instance, prop, options = instance, execute = true
     if (temp !== undefined) {
       return typeof temp === 'function' && execute ? temp(h, options) : temp;
     }
-    const slotScope = getScopedSlots(instance)[prop];
+    const slotScope = getslots(instance)[prop];
     if (slotScope !== undefined) {
       return typeof slotScope === 'function' && execute ? slotScope(h, options) : slotScope;
     }

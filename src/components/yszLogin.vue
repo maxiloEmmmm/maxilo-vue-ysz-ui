@@ -50,7 +50,7 @@
 @import "../sass/login.scss";
 </style>
 
-<script>
+<script lang="jsx">
 export default {
     name: "yszLogin",
     data(){

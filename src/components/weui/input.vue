@@ -2,7 +2,7 @@
     <input class="weui-input" :type="type" :placeholder="placeholder">
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszWeuiInput',
     props: {

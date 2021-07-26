@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script>
+<script lang="jsx">
 import typeMix from "./type"
 export default {
     mixins: [typeMix],

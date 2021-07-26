@@ -7,7 +7,7 @@
     </t-modal>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszModalCard',
     props: {

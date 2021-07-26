@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import utils from "../utils"
 export default {
     name: 'yszModuleCard',
@@ -7,18 +7,18 @@ export default {
         title: {type: String, default: ""}
     },
     render(){
-        const {$scopedSlots, $slots} = this
+        const {$slots} = this
         return <ysz-module class={{'ysz-module__body--fit': this.bodyFit}}>
-            {this.title || $scopedSlots.title
+            {this.title || $slots.title
                 ?   <div class="ysz-module__head">
-                        <div class="ysz-module__head-label">{ utils.getRender(this, this.title || $scopedSlots.title, {}) }</div>
-                        {$scopedSlots.bar
-                            ? <div class="ysz-module__head-bar">{ utils.getRender(this, $scopedSlots.bar, {}) }</div>
+                        <div class="ysz-module__head-label">{ utils.getRender(this, this.title || $slots.title, {}) }</div>
+                        {$slots.bar
+                            ? <div class="ysz-module__head-bar">{ utils.getRender(this, $slots.bar, {}) }</div>
                             : null}
                     </div>
                 : null}
             <div class="ysz-module__body">
-                { $slots.default }
+                { $slots.default() }
             </div>
         </ysz-module>
     }

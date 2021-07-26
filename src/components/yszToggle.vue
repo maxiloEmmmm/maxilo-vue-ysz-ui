@@ -2,7 +2,7 @@
     <div :class="val ? 'active' : ''" @click="touch"><slot></slot></div>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszToggle',
     props: {

@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import utils from "../utils"
 export default {
     name: 'yszModuleWidget',
@@ -7,17 +7,17 @@ export default {
         desc: {type: String, default: ""}
     },
     render(){
-        const {$scopedSlots, $slots} = this
+        const {$slots} = this
         return <ysz-module>
             <ysz-widget>
-                {this.title || $scopedSlots.title 
-                    ? <template slot="title">{ utils.getRender(this, this.title || $scopedSlots.title , {}) }</template>
+                {this.title || $slots.title
+                    ? <template slot="title">{ utils.getRender(this, this.title || $slots.title , {}) }</template>
                     : null}
-                {this.desc || $scopedSlots.desc 
-                    ? <template slot="desc">{ utils.getRender(this, this.desc || $scopedSlots.desc, {}) }</template>
+                {this.desc || $slots.desc
+                    ? <template slot="desc">{ utils.getRender(this, this.desc || $slots.desc, {}) }</template>
                     : null}
-                {$scopedSlots.bar 
-                    ? <template slot="bar">{ utils.getRender(this, $scopedSlots.bar, {}) }</template>
+                {$slots.bar
+                    ? <template slot="bar">{ utils.getRender(this, $slots.bar, {}) }</template>
                     : null}
                 { $slots.default }
             </ysz-widget>

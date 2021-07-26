@@ -2,7 +2,6 @@ import components from './src/components'
 import './src/sass/index.scss'
 
 import twComponents from './src/components/tw'
-import './src/sass/tw.scss'
 
 import * as config from "./src/config"
 const install = function(vue){

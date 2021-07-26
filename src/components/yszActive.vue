@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import utils from '../utils.js'
 
 export default {
@@ -36,15 +36,15 @@ export default {
         this.$slots.default.forEach((v, i) => {
             let model = utils.get(v, 'data.attrs.model', false) ? v.data.attrs.model : i
             v.__active_model = model
-            this.$set(this.res, model, this.res[model] === undefined ? false : this.res[model])
+            this.res[model] =  this.res[model] === undefined ? false : this.res[model]
             let defEvent = utils.get(v, 'data.on.' + this.event, undefined)
             let hasDefEvent = !!defEvent
             utils.set(v, 'data.on.' + this.event, (e) => {
-                this.$set(this.res, model, !this.res[model]);
+                this.res[model] =  !this.res[model];
                 if(this.res[model] && this.alone) {
                     Object.keys(this.res).forEach(q => {
                         if(q != model) {
-                            this.$set(this.res, q, false);
+                            this.res[q] =  false;
                         }
                     })
                 }

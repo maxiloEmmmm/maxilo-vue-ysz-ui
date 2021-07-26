@@ -3,7 +3,7 @@
         :class="_class"><slot></slot></a>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszWeuibtn',
     props: {
