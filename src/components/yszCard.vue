@@ -1,7 +1,7 @@
 <template>
     <div class="ysz ysz-card">
         <div class="ysz-card__header">
-            <span v-if="title" class="ysz-card__header-title"></span><slot name="header"></slot>
+            <span v-if="title" class="ysz-card__header-title">{{title}}</span><slot name="header"></slot>
         </div>
         <div class="ysz-card__body">
             <slot></slot>
@@ -12,7 +12,7 @@
     </div>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszCard',
     props: {

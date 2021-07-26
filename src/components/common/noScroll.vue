@@ -6,7 +6,7 @@
     </div>
 </template>
 
-<script>
+<script lang="jsx">
 import utils from '../../utils'
 export default {
     name: 'noScroll',

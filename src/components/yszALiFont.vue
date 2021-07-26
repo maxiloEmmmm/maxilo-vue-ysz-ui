@@ -6,7 +6,7 @@
     </i>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszALiFont',
     props: {

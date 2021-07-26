@@ -15,7 +15,7 @@
     </ysz-list-item>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'yszListItemMedia'
 }

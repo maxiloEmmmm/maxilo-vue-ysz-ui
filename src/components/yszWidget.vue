@@ -1,22 +1,22 @@
-<script>
+<script lang="jsx">
 import utils from "../utils"
 export default {
     name: "yszWidget",
     render(){
-        const {$scopedSlots, $slots} = this
+        const {$slots} = this
         return  <div class="ysz-widget">
-            { $scopedSlots.title || $scopedSlots.desc || $scopedSlots.bar 
+            { $slots.title || $slots.desc || $slots.bar
                 ? <div class="ysz-widget__head">
                     <div class="ysz-widget__head-wrap">
-                        {$scopedSlots.title 
-                            ? <div class="ysz-widget__head-title">{ utils.getRender(this, $scopedSlots.title , {}) }</div>
+                        {$slots.title
+                            ? <div class="ysz-widget__head-title">{ utils.getRender(this, $slots.title , {}) }</div>
                             : null}
-                        {$scopedSlots.desc 
-                            ? <div class="ysz-widget__head-desc">{ utils.getRender(this, $scopedSlots.desc , {}) }</div>
+                        {$slots.desc
+                            ? <div class="ysz-widget__head-desc">{ utils.getRender(this, $slots.desc , {}) }</div>
                             : null}
                     </div>
-                    {$scopedSlots.bar 
-                        ? <div class="ysz-widget__head-bar">{ utils.getRender(this, $scopedSlots.bar , {}) }</div>
+                    {$slots.bar
+                        ? <div class="ysz-widget__head-bar">{ utils.getRender(this, $slots.bar , {}) }</div>
                         : null}
                 </div>
                 : null}

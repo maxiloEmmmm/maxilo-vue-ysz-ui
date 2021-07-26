@@ -15,7 +15,7 @@
 @import '../../sass/dashboard.scss';
 </style>
 
-<script>
+<script lang="jsx">
 import utils from "../../utils"
 export default {
     name: "dashboardSlide",
@@ -50,7 +50,7 @@ export default {
                 return
             }
             let open = !this.active[nav.key]
-            this.$set(this.active, nav.key, open)
+            this.active[nav.key] =  open
             open && this.setCurrent(nav)
         }
     }

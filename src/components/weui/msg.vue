@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import Vue from 'vue'
 export default {
     name: 'yszWeuiMsg',

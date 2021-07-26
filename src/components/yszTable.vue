@@ -1,9 +1,9 @@
-<script>
+<script lang="jsx">
 import utils from "../utils"
 export default {
     name: 'yszTable',
     render(){
-        const {$scopedSlots, $utils} = this
+        const {$slots, $utils} = this
         return <div class="flex">
                 <table class="border-collapse w-full" ref="loading">
                     {/* 表头 */}
@@ -16,7 +16,7 @@ export default {
                                     vOn:click={e => !th.sort ? '' : this.toSort(th.field, this.sort[0] === th.field ? (this.sort[1] == 'desc' ? 'asc' : 'desc') : 'asc')}
                                     style={th._style} class={[th.sort ? 'mxl-table-th-sort' : '', this.sort[0] === th.field ? (this.sort[1] === 'asc' ? 'mxl-table-sort-asc' : 'mxl-table-sort-desc') : '']}>
                                     {th.thSlot || th.thRender 
-                                        ? (th.thRender ? th.thRender(th).children : $scopedSlots[th.thSlot](th))
+                                        ? (th.thRender ? th.thRender(th).children : $slots[th.thSlot](th))
                                         : th.title }
                                 </th>
                             )}
@@ -39,7 +39,7 @@ export default {
                                                 </td>
                                             }else {
                                                 return <td class="border border-gray-400" key={thIndex} style={th._style}>
-                                                    {$scopedSlots[th.tdSlot]({th, view, viewIndex, thIndex})}
+                                                    {$slots[th.tdSlot]({th, view, viewIndex, thIndex})}
                                                 </td>
                                             }
                                         }else {
@@ -55,7 +55,7 @@ export default {
                                         <td colspan={this._th_len}>
                                             {/* 自定义渲染 */}
                                             {this.tdHideSlot 
-                                                ? $scopedSlots[tdHideSlot]({ths: this._hide_ths, view, viewIndex})
+                                                ? $slots[tdHideSlot]({ths: this._hide_ths, view, viewIndex})
                                                 /* 规规矩矩来 */
                                                 : <dl class="dl-horizontal">
                                                     {this._hide_ths.map((th, thIndex) => 
@@ -63,7 +63,7 @@ export default {
                                                         [
                                                             <dt key={thIndex + '_dt'}>
                                                                 {th.thSlot || th.thRender
-                                                                    ? (th.thRender ? th.thRender({th, view, viewIndex}).children : $scopedSlots[th.thSlot]({th, view, viewIndex}))
+                                                                    ? (th.thRender ? th.thRender({th, view, viewIndex}).children : $slots[th.thSlot]({th, view, viewIndex}))
                                                                     : th.title }
                                                                 {/* sort */}
                                                                 {th.sort
@@ -76,7 +76,7 @@ export default {
                                                             {/* 数据渲染 */},
                                                             <dd key={thIndex + '_dd'}>
                                                                 {th.tdSlot || th.tdRender
-                                                                    ? (th.tdRender ? th.tdRender({th, view, viewIndex}).children : $scopedSlots[th.tdSlot]({th, view, viewIndex}))
+                                                                    ? (th.tdRender ? th.tdRender({th, view, viewIndex}).children : $slots[th.tdSlot]({th, view, viewIndex}))
                                                                     : view[th.field] }
                                                             </dd>]
                                                     )}
@@ -94,7 +94,7 @@ export default {
                             <td colspan={this._th_len} class="text-center">
                                 {!this._has_viewer
                                     ? <tw-alert title="暂无数据"></tw-alert>
-                                    : ($scopedSlots.foot ? $scopedSlots.foot() : null)}
+                                    : ($slots.foot ? $slots.foot() : null)}
                             </td>
                         </tr>
                     </tfoot>
@@ -237,11 +237,11 @@ export default {
         },
         /* 表格自渲染 */
         fieldRender(slot, th, view, index, thIndex){
-            return this.$scopedSlots[slot]({th, view, index, thIndex});
+            return this.$slots[slot]({th, view, index, thIndex});
         },
         /* 反转隐藏数据列显示 */
         toggleHide(index){
-            this.$set(this.hideTrShow, index, !this.hideTrShow[index]);
+            this.hideTrShow[index] =  !this.hideTrShow[index];
         },
         /* 监听卡片视图 */
         async listenCard(){

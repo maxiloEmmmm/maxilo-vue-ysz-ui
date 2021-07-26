@@ -7,8 +7,7 @@
     </div>
 </template>
 
-<script>
-import "loaders.css"
+<script lang="jsx">
 export default {
     name: 'yszFetchWrap', 
     data(){

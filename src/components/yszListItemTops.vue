@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import utils from '../utils.js'
 export default {
     name: 'yszListItemTops',
