@@ -4,9 +4,8 @@
             <div class="d-header__title">
                 <div class="d-header__title-status">
                     <div class="items">
-                        <tw-emotion size="lg" @click="onLogout">退出</tw-emotion>
+                        <a-button size="lg" @click="onLogout">退出</a-button>
                     </div>
-                    
                 </div>
             </div>
             <div class="d-header__status" @mousewheel="userWheel" ref="status" :style="{left: `${status_left}px`}">
@@ -25,7 +24,7 @@
         </div>
         <div class="d-slide">
             <div class="d-slide__title">
-                <div class="d-slide__title-banner">{{this.title}}</div>
+                <div class="d-slide__title-banner">{{title}}</div>
                 <div>&lt;&lt;</div>
             </div>
             <no-scroll class="d-slide__list">
@@ -51,7 +50,8 @@ export default {
     }},
     props: {
         navs: {type: Array},
-        title: {type: String, default: "-"}
+        title: {type: String, default: "-"},
+        mode: {type: String, default: "hash"}
     },
     methods: {
         onLogout(){
@@ -61,14 +61,14 @@ export default {
             if(/^https?/.test(path)) {
                 return path
             }
-            if(this.$app.make("router").mode == "hash") {
+            if(this.mode === "hash") {
                 let p = window.location.pathname
-                if(path.slice(-1) == "/") {
+                if(path.slice(-1) === "/") {
                     p = path.slice(0, -1)
                 }
-                return window.location.origin + p + path
+                return `${window.location.origin}${p}#${path}`
             }else {
-                return `${window.location.origin}/${path}`
+                return `${window.location.origin}${path}`
             }
         },
         touch(nav) {
@@ -76,7 +76,7 @@ export default {
                 window.open(this.u(nav.href))
                 return
             }
-            let exist = Object.keys(this.tabs).filter(tab => nav.key == this.tabs[tab].key)[0]
+            let exist = Object.keys(this.tabs).filter(tab => nav.key === this.tabs[tab].key)[0]
             if(exist) {
                 this.current = this.tabs[exist].__PAGE__
                 return
@@ -89,7 +89,7 @@ export default {
         closeTab(nav){
             this.$delete(this.tabs, nav.__PAGE__)
 
-            if(nav.__PAGE__ == this.current) {
+            if(nav.__PAGE__ === this.current) {
                 let last = Object.keys(this.tabs).slice(-1)
                 if(last.length > 0) {
                     this.current = last[0]
@@ -101,7 +101,7 @@ export default {
             let d = src.split("#")
             let k = utils.random("")
             src = d[0]
-            if(src.indexOf("?") == -1) {
+            if(src.indexOf("?") === -1) {
                 src += "?"
             }
             let path = src.split("?")

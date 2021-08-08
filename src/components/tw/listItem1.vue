@@ -11,7 +11,7 @@ export default {
     render(){
         const {$slots} = this
         let items = this.items.map((item, index) => 
-            <div vOn:click={e => this.onClick({index, item, items})} class="bg-white px-4 py-1 font-normal text-base cursor-pointer flex items-center hover:bg-gray-300" key={ index }>
+            <div onClick={e => this.onClick({index, item, items})} class="bg-white px-4 py-1 font-normal text-base cursor-pointer flex items-center hover:bg-gray-300" key={ index }>
                 {this.index ? <div class={"font-bold text-gray-600 flex-shrink-0 mr-2 " + 
                     (this.indexBorder 
                         ? "px-1 bg-gray-200 w-6 h-6 flex items-center justify-center rounded-xs" 

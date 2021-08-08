@@ -20,7 +20,7 @@ export default {
                         : null}
                 </div>
                 : null}
-            <div class="ysz-widget__body">{ $slots.default }</div>
+            <div class="ysz-widget__body">{ $slots.default() }</div>
         </div>
     }
 }
