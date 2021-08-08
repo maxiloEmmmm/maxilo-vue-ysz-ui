@@ -19,7 +19,7 @@ export default {
                 {$slots.bar
                     ? <template slot="bar">{ utils.getRender(this, $slots.bar, {}) }</template>
                     : null}
-                { $slots.default }
+                { $slots.default() }
             </ysz-widget>
         </ysz-module>
     }

@@ -141,6 +141,8 @@ const resize = function(el, cb, _c) {
             height: 100%;
             position: absolute;
             visibility: hidden;
+            top: 0;
+            left: 0;
             margin: 0;
             padding: 0;
             border: 0;`)
@@ -161,10 +163,12 @@ const resize = function(el, cb, _c) {
     }
 
     let timer = 0;
-    iframe.contentWindow && (iframe.contentWindow.onresize = function () {
+    let lh = function () {
         clearTimeout(timer)
         timer = setTimeout(sizeChange, 20)
-    })
+    }
+
+    iframe.contentWindow && (iframe.contentWindow.onresize = lh)
 }
 
 let stopPropagation = function (e) {
