@@ -36,7 +36,7 @@ export default {
 
             switch (node.type.toString()) {
                 case 'Symbol(Text)':
-                    if (node.children.replace(/^[\s]*.*?[\s]*$/, "").length !== 0) {
+                    if (node.children.replace(/^[\s]*(.*?)[\s]*$/, "$1").length !== 0) {
                         cc.push(node)
                     }
                     break
